@@ -1,7 +1,12 @@
+import Navbar from "@/components/navbar/NavBar";
+import Footer from "@/components/footer/Footer";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello world!
-    </main>
+    <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
+      <Navbar />
+      <main className="">Hello world!</main>
+      <Footer />
+    </div>
   );
 }
