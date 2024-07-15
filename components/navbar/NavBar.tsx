@@ -1,6 +1,7 @@
 import Image from "next/image";
 //import Logo from "@/assets/logo.svg";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   return (
@@ -15,13 +16,13 @@ const Navbar = () => {
           1
         </div>
       </div>
-      <div className="flex gap-2">
+      <div className="flex justify-center items-center gap-2">
         <div className="w-12 h-12 bg-slate-600 rounded-lg flex justify-center items-center">
           2
         </div>
-        <div className="w-12 h-12 bg-slate-600 rounded-lg flex justify-center items-center">
-          3
-        </div>
+        <Button asChild>
+          <Link href="/sign-in">login</Link>
+        </Button>
       </div>
     </nav>
   );
