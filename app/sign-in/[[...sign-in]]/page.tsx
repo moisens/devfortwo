@@ -1,9 +1,11 @@
 import { SignIn } from "@clerk/nextjs";
 
-export default function Page() {
+const SingInpage = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-[100dvh] bg-white">
       <SignIn />
     </div>
   );
-}
+};
+
+export default SingInpage;
