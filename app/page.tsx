@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
       <Navbar />
-      <main className="w-full h-auto bg-white ">
+      <main className="w-full h-auto bg-muted ">
         <header className="max-w-screen-2xl h-auto m-auto px-4 mt-20 mb-40 lg:grid grid-cols-2 gap-4 lg:px-8">
           <section className="mb-8 sm:pl-4 lg:mb-0">
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-[40px] md:leading-[1.1] lg:col-span-2 lg:text-[64px] lg:leading-[1.125em]">
@@ -30,7 +30,7 @@ export default function Home() {
             </p>
           </section>
 
-          <section className="h-[auto] bg-slate-100 rounded-2xl sm:mx-4">
+          <section className="h-[auto] bg-white rounded-2xl sm:mx-4">
             <Image
               src={Landing}
               alt="devfortwo"
