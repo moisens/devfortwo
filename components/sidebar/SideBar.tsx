@@ -5,9 +5,7 @@ import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-type Props = {};
-
-const SideBar = (props: Props) => {
+const SideBar = () => {
   const pathname = usePathname();
 
   return (
@@ -22,9 +20,7 @@ const SideBar = (props: Props) => {
               variant={pathname === `${href}` ? "default" : "link"}
               className="flex justify-start items-center capitalize"
             >
-              <Link href={href} className="text-slate-950">
-                {label}
-              </Link>
+              <Link href={href}>{label}</Link>
             </Button>
           );
         })}
