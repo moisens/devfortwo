@@ -19,10 +19,12 @@ const SideBar = (props: Props) => {
             <Button
               asChild
               key={id}
-              variant={pathname === `${href}` ? "outline" : "ghost"}
+              variant={pathname === `${href}` ? "default" : "link"}
               className="flex justify-start items-center capitalize"
             >
-              <Link href={href}>{label}</Link>
+              <Link href={href} className="text-slate-950">
+                {label}
+              </Link>
             </Button>
           );
         })}
