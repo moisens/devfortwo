@@ -34,7 +34,7 @@ export const createJobActions = async (
 };
 
 export type GetAllJobsType = {
-  jobs: [];
+  jobs: JobType[];
   count: number;
   page: number;
   totalPages: number;
@@ -81,9 +81,9 @@ export const getAllJobsActions = async ({
       orderBy: { createdAt: "desc" },
     });
 
-    return { jobs: [], count: 0, page: 1, totalPages: 0 };
+    return { jobs, count: 0, page: 1, totalPages: 0 };
   } catch (error) {
     console.log(error);
+    return { jobs: [], count: 0, page: 1, totalPages: 0 };
   }
-  return { jobs: [], count: 0, page: 1, totalPages: 0 };
 };
