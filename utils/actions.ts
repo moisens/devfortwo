@@ -124,7 +124,7 @@ export const getSingleJobActions = async (
   return job;
 };
 
-export const updateJobAction = async (
+export const updateJobActions = async (
   id: string,
   values: CreateAndEditJobType
 ): Promise<JobType | null> => {
