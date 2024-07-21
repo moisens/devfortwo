@@ -123,3 +123,25 @@ export const getSingleJobActions = async (
   if (!job) redirect("/jobs");
   return job;
 };
+
+export const updateJobAction = async (
+  id: string,
+  values: CreateAndEditJobType
+): Promise<JobType | null> => {
+  const userId = await authenticateAndRedirect();
+
+  try {
+    const job: JobType = await prisma.job.update({
+      where: {
+        id,
+        clerkId: userId,
+      },
+      data: {
+        ...values,
+      },
+    });
+    return job;
+  } catch (error) {
+    return null;
+  }
+};
