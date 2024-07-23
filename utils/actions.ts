@@ -147,3 +147,36 @@ export const updateJobActions = async (
     return null;
   }
 };
+
+export type StatsActionsType = {
+  pending: number;
+  interview: number;
+  declined: number;
+};
+
+export const getStatsActions = async (): Promise<StatsActionsType> => {
+  const userId = await authenticateAndRedirect();
+
+  try {
+    const stats = await prisma.job.groupBy({
+      by: ["status"],
+      _count: { status: true },
+      where: { clerkId: userId },
+    });
+
+    const statsObject = stats.reduce((acc, curr) => {
+      acc[curr.status] = curr._count.status;
+      return acc;
+    }, {} as Record<string, number>);
+
+    const defaultStats = {
+      pending: 0,
+      declined: 0,
+      interview: 0,
+      ...statsObject,
+    };
+    return defaultStats;
+  } catch (error) {
+    redirect("/jobs");
+  }
+};
