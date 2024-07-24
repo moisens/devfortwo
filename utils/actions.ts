@@ -77,12 +77,20 @@ export const getAllJobsActions = async ({
       };
     }
 
+    const skip = (page - 1) * limit; // (1-1) * 10 = 0 | (2-1)*10 = 10 -> skip from O, skip from 10
+    const count: number = await prisma.job.count({
+      where: whereClause,
+    });
+    const totalPages = Math.ceil(count / limit);
+
     const jobs: JobType[] = await prisma.job.findMany({
+      skip,
+      take: limit,
       where: whereClause,
       orderBy: { createdAt: "desc" },
     });
 
-    return { jobs, count: 0, page: 1, totalPages: 0 };
+    return { jobs, count, page, totalPages };
   } catch (error) {
     console.log(error);
     return { jobs: [], count: 0, page: 1, totalPages: 0 };
