@@ -31,17 +31,15 @@ const JobsList = () => {
         <h2 className="text-xl font-semibold capitalize ">
           {count} jobs found
         </h2>
+        {totalPages < 2 ? null : (
+          <ButtonContainer currentPage={page} totalPages={totalPages} />
+        )}
       </div>
       <div className="grid md:grid-cols-2  gap-8">
         {jobs.map((job) => {
           const { id } = job;
           return <JobCard key={id} job={job} />;
         })}
-      </div>
-      <div className="mt-8 flex justify-end">
-        {totalPages < 2 ? null : (
-          <ButtonContainer currentPage={page} totalPages={totalPages} />
-        )}
       </div>
     </>
   );
