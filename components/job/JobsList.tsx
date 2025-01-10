@@ -13,7 +13,7 @@ const JobsList = () => {
   const pageNumber = Number(searchParams.get("page") || 1);
 
   const { data, isPending } = useQuery({
-    queryKey: ["jobs", search ?? "", "jobStatus", "page"],
+    queryKey: ["jobs", search ?? "", "jobStatus", "page", pageNumber],
     queryFn: () => getAllJobsActions({ search, jobStatus, page: pageNumber }),
   });
 
